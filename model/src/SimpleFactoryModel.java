@@ -1,5 +1,5 @@
-import Utils.ObjectA;
-import Utils.ObjectB;
+import Pojo.Apple;
+import Pojo.Pear;
 
 /**
  * @author: 郑伟鹏
@@ -16,12 +16,12 @@ public class SimpleFactoryModel {
 
     public static Object getObject(String objectName){
 
-        if (objectName == "ObjectA") {
-            return new ObjectA();
+        if (objectName.equals("Apple")) {
+            return new Apple();
         }
 
-        if (objectName == "ObjectB") {
-            return new ObjectB();
+        if (objectName.equals("Pear")) {
+            return new Pear();
         }
 
         // if not catch the object name
@@ -30,8 +30,11 @@ public class SimpleFactoryModel {
 
     public static void main(String[] args) {
 
-        String objName = "ObjectA";
-        ObjectA objectA = (ObjectA) SimpleFactoryModel.getObject(objName);
-        System.out.println(objectA);
+        String objName = "Apple";
+        Apple apple = (Apple) SimpleFactoryModel.getObject(objName);
+        System.out.println("通过工厂模式创建了" + objName + "类 : " + apple);
+        objName = "Pear";
+        Pear pear = (Pear) SimpleFactoryModel.getObject(objName);
+        System.out.println("通过工厂模式创建了" + objName + "类 : " + pear);
     }
 }
